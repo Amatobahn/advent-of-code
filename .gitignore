@@ -106,3 +106,9 @@ venv.bak/
 # VS Code
 *.code-workspace
 .vscode/
+
+# PyCharm
+.idea/
+
+# Advent Content
+puzzle_inputs/

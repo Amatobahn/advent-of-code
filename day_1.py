@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
---- DAY 1: Chronal Calibratoin ---
+--- DAY 1: Chronal Calibration ---
 
 --- Part One ---
 After feeling like you've been falling for a few minutes, you look at the device's tiny screen.
@@ -57,27 +57,41 @@ What is the first frequency your device reaches twice?
 
 """
 
+import itertools
 from advent_io import get_puzzle_input
+
+
+def calibrate(frequencies: list, puzzle_phase: int):
+    """
+    Phase One: Adds up all items in devices frequency output
+    Phase Two: Locates the first repeated frequency. Can cycle more than once through data.
+
+    Arguments:
+        frequencies (list): Frequency output change from device
+        puzzle_phase (int): Puzzle part to solve for
+    """
+
+    if puzzle_phase is 1:
+        print(f"Part One: {sum(frequencies)}")
+        return
+    else:
+        resulting_frequency = 0
+        computed_frequencies = set([])
+
+        for f in itertools.cycle(frequencies):
+            resulting_frequency += f
+            if resulting_frequency in computed_frequencies:
+                print(f"Part Two: {resulting_frequency}")
+                return
+            computed_frequencies.add(resulting_frequency)
+
 
 if __name__ == "__main__":
 
-    # Part One and Part Two Solution -- late night quick solution
-    resulting_freq = 0
-    computed_freq = list()
-    
-    iteration = 0
+    inputs = [int(val) for val in get_puzzle_input(1).readlines()]
+    calibrate(inputs, 1)
+    calibrate(inputs, 2)
 
-    while iteration is not -1:
-        if iteration is 1:
-            print(f"Part One: {resulting_freq}")
-        for line in get_puzzle_input(1):
-            resulting_freq += int(line)
-            if resulting_freq in computed_freq:
-                print(f"Part Two: {resulting_freq}")
-                iteration = -1
-                break
-            else:
-                computed_freq.append(resulting_freq)
-        iteration += 1
+
 
 

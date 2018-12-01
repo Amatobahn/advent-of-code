@@ -58,7 +58,6 @@ What is the first frequency your device reaches twice?
 """
 
 import itertools
-from advent_io import get_puzzle_input
 
 
 def calibrate(frequencies: list, puzzle_phase: int):
@@ -72,8 +71,7 @@ def calibrate(frequencies: list, puzzle_phase: int):
     """
 
     if puzzle_phase is 1:
-        print(f"Part One: {sum(frequencies)}")
-        return
+        return f"Part One: {sum(frequencies)}"
     else:
         resulting_frequency = 0
         computed_frequencies = set([])
@@ -81,16 +79,14 @@ def calibrate(frequencies: list, puzzle_phase: int):
         for f in itertools.cycle(frequencies):
             resulting_frequency += f
             if resulting_frequency in computed_frequencies:
-                print(f"Part Two: {resulting_frequency}")
-                return
+                return f"Part Two: {resulting_frequency}"
             computed_frequencies.add(resulting_frequency)
 
 
 if __name__ == "__main__":
 
-    inputs = [int(val) for val in get_puzzle_input(1).readlines()]
-    calibrate(inputs, 1)
-    calibrate(inputs, 2)
+    inputs = [int(val) for val in open("puzzle_inputs/input_day_1.txt", "r").readlines()]
+    print(calibrate(inputs, 1), calibrate(inputs, 2))
 
 
 

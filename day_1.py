@@ -87,7 +87,3 @@ if __name__ == "__main__":
 
     inputs = [int(val) for val in open("puzzle_inputs/input_day_1.txt", "r").readlines()]
     print(calibrate(inputs, 1), calibrate(inputs, 2))
-
-
-
-

@@ -112,7 +112,7 @@ def metadata_sum(license_file: list) -> tuple:
     combined_total += sum(data[:metadata])
 
     # If child node doesn't have children, then we take its sum of the metadata entries.
-    if child_nodes is 0:
+    if not child_nodes:
         return combined_total, sum(data[:metadata]), data[metadata:]
     # Get's the value of the child reference based on the metadata entry as an index, then captures the sum of
     # the child nodes referenced by the metadata entries.

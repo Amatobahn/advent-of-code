@@ -249,7 +249,7 @@ if __name__ == "__main__":
     # For each line we map to variables
     for line in open("puzzle_inputs/input_day_10.txt", 'r').readlines():
         for coord, velocity in zip([x, y, vx, vy], map(int, re.findall(r'-?\d+', line))):
-            continue
+            coord.append(velocity)
 
     # Run function to save an elf with a not so descriptive message.
     print(get_rescue_op_message((x, y, vx, vy), 1, True))

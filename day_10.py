@@ -157,6 +157,14 @@ take many more seconds to appear.
 
 What message will eventually appear in the sky?
 
+--- Part Two ---
+
+Good thing you didn't have to wait, because that would have taken a long time -
+much longer than the 3 seconds in the example above.
+
+Impressed by your sub-hour communication capabilities, the Elves are curious:
+exactly how many seconds would they have needed to wait for that message to appear?
+
 """
 
 import os
@@ -244,6 +252,9 @@ def get_rescue_op_message(light_data: tuple, time_steps: int, use_ocr: bool=Fals
 
 if __name__ == "__main__":
 
+    # OCR?
+    use_ocr = False
+
     # Lazily build initial variables
     x, y, vx, vy = list(), list(), list(), list()
     # For each line we map to variables
@@ -252,6 +263,6 @@ if __name__ == "__main__":
             coord.append(velocity)
 
     # Run function to save an elf with a not so descriptive message.
-    print(get_rescue_op_message((x, y, vx, vy), 1, True))
+    print(get_rescue_op_message((x, y, vx, vy), 1, use_ocr))
 
 

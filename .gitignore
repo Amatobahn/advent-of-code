@@ -109,6 +109,3 @@ venv.bak/
 
 # PyCharm
 .idea/
-
-# Advent Content
-puzzle_inputs/

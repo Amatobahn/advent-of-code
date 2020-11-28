@@ -2,7 +2,7 @@
 from __future__ import absolute_import, print_function, division, unicode_literals
 
 """
-Day 27: 
+Day 01: 
 """
 # built-ins
 
@@ -16,7 +16,7 @@ from aoc import AdventUser, PuzzlePart
 
 # collect puzzle data
 user = AdventUser()
-puzzle = user.get_puzzle(27, 2020)
+puzzle = user.get_puzzle(1, 2020)
 
 # answer submissions
 puzzle.submit(answer_a, PuzzlePart.A)

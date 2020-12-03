@@ -7,7 +7,7 @@ import enum
 import os
 from pathlib import Path
 import re
-import requests
+import pip._vendor.requests as requests
 
 _URL = "https://adventofcode.com/{year}/day/{day}"
 

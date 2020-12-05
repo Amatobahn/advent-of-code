@@ -44,6 +44,7 @@ What do you get if you multiply together the number of trees encountered on each
 
 # built-ins
 from functools import reduce
+
 # third-party
 
 # first-party

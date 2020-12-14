@@ -7,7 +7,7 @@ import enum
 import os
 from pathlib import Path
 import re
-import requests
+import pip._vendor.requests as requests
 
 _URL = "https://adventofcode.com/{year}/day/{day}"
 
@@ -44,7 +44,7 @@ class Puzzle(object):
         self.day = day
         self.year = year
         self._user = user
-        self.input = self._get_input() or ""
+        self.input, self.input_raw = self._get_input() or ["", ""]
 
     def _get_input(self):
         uri = self._user.input_url.format(day=self.day, year=self.year)
@@ -54,7 +54,7 @@ class Puzzle(object):
             if not response.ok:
                 raise RuntimeWarning("Unexpected Response")
             data = response.text
-            return data.rstrip("\r\n")
+            return [data.rstrip("\r\n"), data]
 
     def submit(self, answer, part: PuzzlePart):
         if answer in [u"", b"", None, b"None", u"None"]:
